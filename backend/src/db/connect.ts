@@ -4,19 +4,13 @@ import dotenv from "dotenv";
 dotenv.config();
 
 export const pool = new Pool({
-  user: process.env.PG_USER,
-  password: process.env.PG_PASSWORD,
-  host: process.env.PG_HOST,
-  port: Number(process.env.PG_PORT),
-  database: process.env.PG_DATABASE,
+  user: process.env.DB_USER,
+  host: process.env.DB_HOST,
+  database: process.env.DB_NAME,
+  password: process.env.DB_PASS,
+  port: Number(process.env.DB_PORT) || 5432,
 });
 
-pool
-  .connect()
-  .then((client) => {
-    console.log("✅ PostgreSQL connected successfully!");
-    client.release();
-  })
-  .catch((err: Error) => {
-    console.error("❌ PostgreSQL connection error:", err.message);
-  });
+pool.connect()
+  .then(() => console.log("✅ Connected to PostgreSQL"))
+  .catch((err) => console.error("❌ Database connection failed:", err));
