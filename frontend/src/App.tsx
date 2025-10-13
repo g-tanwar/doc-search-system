@@ -8,8 +8,11 @@ import Search from "./pages/Search";
 const App: React.FC = () => {
   return (
     <Router>
+      {/*  Navbar visible on all pages */}
       <Navbar />
-      <div style={{ padding: "20px" }}>
+
+      {/* Page content area */}
+      <div style={{ padding: "20px", fontFamily: "Arial, sans-serif" }}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/upload" element={<Upload />} />

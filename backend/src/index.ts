@@ -6,6 +6,7 @@ import uploadRoutes from "./routes/uploadRoutes";
 import fs from "fs";
 import path from "path";
 import pdfRoutes from "./routes/pdfRoutes";
+import searchRoutes from "./routes/searchRoutes";
 
 
 
@@ -16,6 +17,7 @@ app.use(cors());
 app.use(express.json());
 app.use("/api", uploadRoutes);
 app.use("/api", pdfRoutes);
+app.use("/api", searchRoutes);
 
 initDB();
 
