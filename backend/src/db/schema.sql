@@ -38,3 +38,20 @@ SELECT id, filename, created_at FROM pdfs ORDER BY id DESC LIMIT 5;
 -- To view text content
 SELECT text_content FROM pdfs WHERE id = <the_id>;
 
+CREATE TABLE faqs (
+    id SERIAL PRIMARY KEY,
+    title TEXT NOT NULL,
+    content TEXT NOT NULL,
+    tags TEXT[],
+    created_at TIMESTAMP DEFAULT NOW(),
+    updated_at TIMESTAMP DEFAULT NOW()
+);
+
+CREATE TABLE links (
+    id SERIAL PRIMARY KEY,
+    title TEXT NOT NULL,
+    url TEXT NOT NULL,
+    description TEXT,
+    created_at TIMESTAMP DEFAULT NOW(),
+    updated_at TIMESTAMP DEFAULT NOW()
+);
